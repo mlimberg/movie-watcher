@@ -11,6 +11,7 @@ import MovieListContainer from './containers/movieListContainer/MovieListContain
 import SignUpContainer from './containers/signUpContainer/SignUpContainer';
 import FavoritesContainer from "./containers/favoritesContainer/FavoritesContainer";
 import MovieDetail from './components/movieDetail/MovieDetail';
+import Account from './components/account/Account';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
@@ -22,8 +23,9 @@ const router = (
       <Route path='/' component={App}>
         <IndexRoute component={MovieListContainer} />
         <Route path='/join' component={SignUpContainer} />
-        <Route path='/favorites' component={FavoritesContainer} />
+        <Route path='/favorites' component={Account} />
         <Route path='/movies/:movie_title' component={MovieDetail} />
+        <Route path='/my-account' component={Account} />
       </Route>
     </Router>
   </Provider>

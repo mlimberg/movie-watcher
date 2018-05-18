@@ -9,6 +9,6 @@ const rootReducer = combineReducers({
   movieListReducer,
   userReducer,
   currentMovieReducer
-})
+});
 
 export default rootReducer;

@@ -7,7 +7,9 @@ class Search extends Component {
     super(props);
     this.state = {
       searchValue: ''
-    }
+    };
+
+    this.enterKey = this.enterKey.bind(this);
   }
 
   getResults() {
@@ -28,49 +30,43 @@ class Search extends Component {
       this.getResults();
   }
 
-  toggleButton() {
-    return (
-        <Link to={this.props.path != '/favorites' ? '/favorites' : '/'}>
-        <button
-          className='show-fav-btn btn'>
-          {this.props.path != '/favorites' ? 'Favorites' : 'Home'}
-        </button>
-      </Link>
-    )
-  }
-
   searchField() {
-    console.log(this.props)
-    if(this.props.path === '/') {
+    const { searchValue } = this.state;
+
+    if (this.props.path === '/') {
       return (
         <div>
-          <button className='search-btn btn'
-            onClick={() => this.getLatest()}>
+          <button 
+            className='search-btn btn'
+            onClick={() => this.getLatest()}
+          >
             Latest Movies
           </button>
-          <input placeholder='Search Movies'
+          <input 
+            placeholder='Search Movies'
             className='search-input input'
-            value={this.state.searchValue}
-            onKeyPress={this.enterKey.bind(this)}
-            onChange={(e) => this.setState({ searchValue: e.target.value })}/>
-            <button className='search-btn btn'
-              disabled={!this.state.searchValue}
-              onClick={() => this.getResults()}>
-              Search
-            </button>
-          </div>
-        )
+            value={searchValue}
+            onKeyPress={this.enterKey}
+            onChange={e => this.setState({ searchValue: e.target.value })}
+          />
+          <button 
+            className='search-btn btn'
+            disabled={!searchValue}
+            onClick={() => this.getResults()}
+          >
+            Search
+          </button>
+        </div>
+      );
     }
   }
 
   render() {
-    const { searchValue } = this.state
     return (
       <div className='search-field'>
-        {this.toggleButton()}
-        {this.searchField()}
+        { this.searchField() }
       </div>
-    )
+    );
   }
 }
 

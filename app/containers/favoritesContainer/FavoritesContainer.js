@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addToFavorites, removeFavorites } from '../../actions';
-import MovieList from '../../components/movieList/MovieList';
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -22,4 +21,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MovieList)
+export default connect(mapStateToProps, mapDispatchToProps);

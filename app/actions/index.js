@@ -1,40 +1,28 @@
-export const addToFavorites = (movie) => {
-  return {
-    type: 'ADD_TO_FAVORITES',
-    movie
-  }
-}
+export const addToFavorites = movie => ({
+  type: 'ADD_TO_FAVORITES',
+  movie
+});
 
-export const loadMovies = (movies) => {
-  return {
-    type: 'LOAD_MOVIES',
-    movies
-  }
-}
+export const loadMovies = movies => ({
+  type: 'LOAD_MOVIES',
+  movies
+});
 
-export const signInUser = (user) => {
-  return {
-    type: "SIGN_IN_USER",
-    user
-  }
-}
+export const signInUser = user => ({
+  type: 'SIGN_IN_USER',
+  user
+});
 
-export const removeFavorites = (movie) => {
-  return {
-    type: "REMOVE_FAVORITES",
-    movie
-  }
-}
+export const removeFavorites = movie => ({
+  type: 'REMOVE_FAVORITES',
+  movie
+});
 
-export const clearFavorites = () => {
-  return {
-    type: "CLEAR_FAVORITES",
-  }
-}
+export const clearFavorites = () => ({
+  type: 'CLEAR_FAVORITES'
+});
 
-export const setCurrentMovie = (movie) => {
-  return {
-    type: 'SET_CURRENT',
-    movie
-  }
-}
+export const setCurrentMovie = movie => ({
+  type: 'SET_CURRENT',
+  movie
+});
