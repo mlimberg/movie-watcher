@@ -4,31 +4,27 @@ import { loadMovies, signInUser, addToFavorites, clearFavorites } from '../../ac
 import App from '../../components/app/App';
 
 const mapDispatchToProps = (dispatch) => {
-  // console.log('1')
   return {
     fetchMovies: (movies) => {
-      dispatch(loadMovies(movies))
+      dispatch(loadMovies(movies));
     },
+    
     getUser: (user) => {
-      dispatch(signInUser(user))
+      dispatch(signInUser(user));
     },
 
     getFavorites: (favs) => {
-      favs.forEach(fav => dispatch(addToFavorites(fav)))
+      favs.forEach(fav => dispatch(addToFavorites(fav)));
     },
 
     resetFavorites: (movies) => {
-      dispatch(clearFavorites(movies))
+      dispatch(clearFavorites(movies));
     }
-  }
-}
+  };
+};
 
+const mapStateToProps = (state) => ({
+  user: state.user
+});
 
-const mapStateToProps = (state) => {
-  // console.log('4')
-  return {
-    user: state.userReducer,
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App);

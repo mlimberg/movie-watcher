@@ -4,9 +4,9 @@ import MovieList from '../../components/movieList/MovieList';
 
 const mapStateToProps = (state) => {
   return {
-    favorites: state.favoritesReducer,
-    movies: state.movieListReducer,
-    user: state.userReducer
+    favorites: state.favorites,
+    movies: state.movies,
+    user: state.user
   };
 };
 

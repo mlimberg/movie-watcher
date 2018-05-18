@@ -21,7 +21,7 @@ const MovieList = ({ router, location, user, favorites, movies }) => {
 
   const renderAllMovies = () => {
     return movieCards;
-  }
+  };
 
   return (
     <div className='movie-list'>

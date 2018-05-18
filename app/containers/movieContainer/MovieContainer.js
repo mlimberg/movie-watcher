@@ -17,12 +17,10 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const mapStateToProps = (state) => {
-  return {
-    favorites: state.favoritesReducer,
-    movies: state.movieListReducer,
-    user: state.userReducer
-  };
-};
+const mapStateToProps = (state) => ({
+  favorites: state.favorites,
+  movies: state.movieList,
+  user: state.user
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(MovieCard)
+export default connect(mapStateToProps, mapDispatchToProps)(MovieCard);

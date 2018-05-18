@@ -8,11 +8,30 @@ class Account extends Component {
     this.state = {};
   }
 
+  renderProfile() {
+    return (
+      <article>
+        <label>
+          Name: 
+        </label>
+      </article>
+    )
+  }
+
+  renderFavorites() {
+    return (
+      <article>
+        <h1 className='favorites-header'>Favorites</h1>
+        <MovieList {...this.props} />
+      </article>
+    );
+  }
+
   render() {
     return (
       <div>
-        <h1 className='favorites-header'>Favorites:</h1>
-        <MovieList {...this.props}/>
+        { this.renderProfile() }
+        { this.renderFavorites() }
       </div>
     );
   }

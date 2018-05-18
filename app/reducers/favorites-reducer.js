@@ -4,7 +4,7 @@ const favorites = (state = [], action) => {
       return [...state, action.movie];
     case 'REMOVE_FAVORITES':
       return state.filter((movie) => {
-        if (action.movie.title !== movie.title){
+        if (action.movie.title !== movie.title) {
           return movie;
         }
       });
