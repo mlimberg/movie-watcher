@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router';
 import MovieList from '../movieList/MovieList';
 import FavoritesContainer from '../../containers/favoritesContainer/FavoritesContainer';
+import UserContainer from '../../containers/UserContainer/UserContainer';
 
 class Account extends Component {
   constructor() {
@@ -36,7 +37,7 @@ class Account extends Component {
     return (
       <article>
         <h1 className='account-header'>Favorites</h1>
-        <MovieList {...this.props} />
+        <MovieList {...this.props} onAccount={true} />
       </article>
     );
   }
@@ -56,4 +57,4 @@ class Account extends Component {
   }
 }
 
-export default FavoritesContainer(Account);
+export default FavoritesContainer(UserContainer(Account));

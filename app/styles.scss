@@ -341,10 +341,9 @@ body {
 .account-profile-body {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  min-height: 80px;
+  justify-content: space-between;
+  min-height: 100px;
   align-content: center;
-  padding-top: 10px;
   padding-left: 30px;
   font-family: "Fjalla One", sans-serif;
   margin-top: 40px;

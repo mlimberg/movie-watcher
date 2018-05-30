@@ -15,9 +15,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    favorites: state.favorites,
-    movies: state.favorites,
-    user: state.user
+    favorites: state.favorites
   };
 };
 

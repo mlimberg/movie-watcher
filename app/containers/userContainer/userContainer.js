@@ -2,7 +2,9 @@ import { connect } from 'react-redux';
 import { signInUser } from '../../actions';
 
 const mapState = (state) => {
-  return {}
+  return {
+    user: state.user
+  };
 };
 
 const mapDispatch = (dispatch) => ({
