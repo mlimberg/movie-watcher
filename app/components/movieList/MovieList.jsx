@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import MovieCard from '../../containers/movieContainer/MovieContainer';
+import MovieCard from '../../components/movieCard/MovieCard';
 import Search from '../search/Search';
+import MovieContainer from '../../containers/movieContainer/MovieContainer';
 
-const MovieList = ({ router, location, user, favorites, movies }) => {
-    
-  const noUser = <p className='fav-error'>Please sign in to view and add to your favorites.
-                    <br/> Or sign up above!</p>;
+const MovieList = ({ location, user, favorites, movies }) => {    
   const noFavorites = <p className='no-fav-error'>No favorites.</p>;
-  const path = router.location.pathname;
-  let movieCards = noFavorites;
+  const path = location.pathname;
   let faveCards = noFavorites;
+  let movieCards = noFavorites;
   
   if (movies && movies.length) {
     movieCards = movies.map((obj) => {
@@ -36,7 +34,7 @@ const MovieList = ({ router, location, user, favorites, movies }) => {
   const renderAllMovies = () => {
     return movieCards;
   };
-
+  
   return (
     <div className='movie-list'>
       <Search path={location.pathname} />
@@ -45,4 +43,4 @@ const MovieList = ({ router, location, user, favorites, movies }) => {
   );
 };
 
-export default MovieList;
+export default MovieContainer(MovieList);

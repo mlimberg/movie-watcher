@@ -6,8 +6,8 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from './reducers/index';
-import App from './containers/appContainer/AppContainer';
-import MovieListContainer from './containers/movieListContainer/MovieListContainer';
+import App from './components/app/App';
+import MovieList from './components/movieList/MovieList';
 import SignUpContainer from './containers/signUpContainer/SignUpContainer';
 import FavoritesContainer from "./containers/favoritesContainer/FavoritesContainer";
 import MovieDetail from './components/movieDetail/MovieDetail';
@@ -21,7 +21,7 @@ const router = (
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path='/' component={App}>
-        <IndexRoute component={MovieListContainer} />
+        <IndexRoute component={MovieList} />
         <Route path='/join' component={SignUpContainer} />
         <Route path='/favorites' component={Account} />
         <Route path='/movies/:movie_title' component={MovieDetail} />

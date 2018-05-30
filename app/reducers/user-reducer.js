@@ -3,9 +3,10 @@ const userReducer = (state = null, action) => {
     case 'SIGN_IN_USER':
       return action.user;
     case 'ADD_TO_FAVORITES':
-     console.log('state ', state)
       const favorites = state.favorites ? [...state.favorites, action.movie] : [];
       return Object.assign({}, state, { favorites });
+    case 'SIGN_OUT_USER':
+      return null;
     default:
       return state;
   }

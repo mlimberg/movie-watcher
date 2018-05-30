@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
+import UserContainer from '../../containers/userContainer/userContainer';
+import FavoritesContainer from '../../containers/favoritesContainer/FavoritesContainer';
 
 class SignIn extends React.Component {
   constructor() {
@@ -119,4 +121,4 @@ class SignIn extends React.Component {
   }
 }
 
-export default SignIn;
+export default UserContainer(FavoritesContainer(SignIn));

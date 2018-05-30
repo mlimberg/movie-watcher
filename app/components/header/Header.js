@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import SignIn from '../../containers/signInContainer/SignInContainer';
+import UserContainer from '../../containers/userContainer/userContainer';
+import FavoritesContainer from '../../containers/favoritesContainer/FavoritesContainer';
 
 const Header = (props) => {
 
   const signOutUser = () => {
-    props.clearFavorites();
-    props.signOutClick(null);
+    props.resetFavorites();
+    props.signOutUser();
     localStorage.clear();
   };
 
@@ -50,9 +52,9 @@ const Header = (props) => {
              Tomatoes
           </span>
         </Link>
-        <div>{(display())}</div>
+        <div>{ display() }</div>
     </div>
   );
 };
 
-export default Header;
+export default UserContainer(FavoritesContainer(Header));

@@ -12,7 +12,6 @@ const setup = (user = null) => {
     user: user,
     pathname: '/',
     clearFavorites: jest.fn(),
-    signOutClick: jest.fn()
   }
 
   const wrapper = mount(

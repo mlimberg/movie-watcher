@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { signInUser } from '../../actions';
+import { signInUser, signOutUser } from '../../actions';
 
 const mapState = (state) => {
   return {
@@ -8,9 +8,16 @@ const mapState = (state) => {
 };
 
 const mapDispatch = (dispatch) => ({
-  getUser: (user) => {
+  signInUser: (user) => {
     dispatch(signInUser(user));
   },
+  signOutUser: () => {
+    dispatch(signOutUser());
+  },
+  addToLocalStorage: (user) => {
+    user = JSON.stringify(user);
+    localStorage.setItem('user', user);
+  }
 });
 
 export default connect(mapState, mapDispatch);

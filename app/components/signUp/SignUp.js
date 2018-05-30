@@ -1,7 +1,7 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
 import { Link } from 'react-router';
-
+import UserContainer from '../../containers/userContainer/userContainer';
 class SignUp extends React.Component {
   constructor() {
     super();
@@ -129,4 +129,4 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp;
+export default UserContainer(SignUp);

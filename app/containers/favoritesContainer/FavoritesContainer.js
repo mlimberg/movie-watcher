@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToFavorites, removeFavorites } from '../../actions';
+import { addToFavorites, removeFavorites, clearFavorites } from '../../actions';
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -9,6 +9,12 @@ const mapDispatchToProps = (dispatch) => {
     },
     removeFav: (movie) => {
       dispatch(removeFavorites(movie));
+    },
+    resetFavorites: (movies) => {
+      dispatch(clearFavorites(movies));
+    },
+    getFavorites: (favs) => {
+      favs.forEach(fav => dispatch(addToFavorites(fav)))
     }
   };
 };

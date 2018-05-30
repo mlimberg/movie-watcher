@@ -1,26 +1,22 @@
-import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToFavorites, removeFavorites, setCurrentMovie } from '../../actions';
-import MovieCard from '../../components/movieCard/MovieCard';
+import { setCurrentMovie, loadMovies } from '../../actions';
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addFav: (movie) => {
-      dispatch(addToFavorites(movie));
-    },
-    removeFav: (movie) => {
-      dispatch(removeFavorites(movie))
-    },
-    setCurrentMovie: (movie) => {
-      dispatch(setCurrentMovie(movie))
-    }
-  };
-};
+const matchDispatch = (dispatch) => ({
+  setCurrentMovie: (movie) => {
+    dispatch(setCurrentMovie(movie));
+  },
+  loadMovies: (movies) => {
+    dispatch(loadMovies(movies));
+  }
+  // fetchMovies: (movies) => {
+  //   dispatch(loadMovies(movies));
+  // }
 
-const mapStateToProps = (state) => ({
-  favorites: state.favorites,
-  movies: state.movieList,
-  user: state.user
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(MovieCard);
+const mapState = (state) => ({
+  movies: state.movies,
+  movie: state.currentMovie
+});
+
+export default connect(mapState, matchDispatch);

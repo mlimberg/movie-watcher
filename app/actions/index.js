@@ -12,6 +12,9 @@ export const signInUser = user => ({
   type: 'SIGN_IN_USER',
   user
 });
+export const signOutUser = user => ({
+  type: 'SIGN_OUT_USER'
+});
 
 export const removeFavorites = movie => ({
   type: 'REMOVE_FAVORITES',

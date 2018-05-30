@@ -8,8 +8,8 @@ const fakeStore = configureMockStore()({ user: null })
 
 const setup = () => {
   const props = {
-    fetchMovies: jest.fn(),
-    getUser: jest.fn(),
+    loadMovies: jest.fn(),
+    signInUser: jest.fn(),
     getFavorites: jest.fn(),
     resetFavorites: jest.fn()
   }

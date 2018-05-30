@@ -2,25 +2,41 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import MovieDetailContainer from '../../containers/movieDetailContainer/MovieDetailContainer';
 
-const MovieDetail = (props) => {
-  const {id, user, title, poster_path,
-         release_date, vote_average,
-         overview} = props.movie;
+const MovieDetail = (props) => {  
+  const { 
+    movie: {
+      id, 
+      user, 
+      title, 
+      poster_path,
+      release_date, 
+      vote_average,
+      overview
+    }
+   } = props;
 
-console.log(props);
-  const { movie } = props
+  const { movie } = props;
 
   const getMatchedFavID = () => {
+    console.log('hit!!!')
+    
     let match = null;
+   
     props.favorites.forEach(fav => {
+      console.log('FAV ', fav)
+      console.log('props.movie.title', props.movie)
+      
+      
       if(fav.title === props.movie.title)
         match = fav.movie_id || fav.id;
-    })
+    });
+
     return match;
   }
 
   const addFavToApi = () => {
-
+    console.log('add fav to api hit!')
+    
     const favID = getMatchedFavID(props);
 
     if(!favID){

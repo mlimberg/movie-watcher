@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import Header from '../header/Header';
-
+import UserContainer from '../../containers/userContainer/userContainer';
+import MovieContainer from '../../containers/movieContainer/MovieContainer';
+import FavoritesContainer from '../../containers/favoritesContainer/FavoritesContainer';
 class App extends Component {  
   componentDidMount() {
-    const { fetchMovies, getFavorites } = this.props;
+    const { loadMovies, getFavorites } = this.props;
     
     this.getUser();
 
     fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=74e395a1a0373d4f389e8f007c86c5e7&language=en-US')
       .then(data => data.json())
-      .then(data => fetchMovies(data.results));
+      .then(data => loadMovies(data.results));
   }
 
   componentWillReceiveProps(nextProps) {    
@@ -24,22 +26,20 @@ class App extends Component {
     const user = JSON.parse(localStorage.getItem('user'));
 
     if (user) {
-      this.props.getUser(user);
+      this.props.signInUser(user);
     }
   }
 
-  render() {
+  render() {    
+    const { children, location: { pathname }} = this.props;
+
     return (
       <div>
-        <Header
-          user={this.props.user}
-          pathname={this.props.location.pathname}
-          clearFavorites={this.props.resetFavorites}
-          signOutClick={this.props.getUser} />
-        {this.props.children}
+        <Header pathname={pathname} />
+        {children}
       </div>
     );
   }
 }
 
-export default App;
+export default FavoritesContainer(UserContainer(MovieContainer(App)));
