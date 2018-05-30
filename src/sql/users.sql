@@ -7,6 +7,7 @@ CREATE TABLE users (
   id SERIAL NOT NULL PRIMARY KEY,
   name VARCHAR (123) NOT NULL,
   password VARCHAR (123) NOT NULL,
+  memberSince VARCHAR (123) NOT NULL,
   email VARCHAR (123) NOT NULL
 );
 
@@ -24,5 +25,5 @@ CREATE TABLE favorites (
 CREATE UNIQUE INDEX email ON users (email);
 
 
-INSERT INTO users (name, password, email)
-  VALUES ('Tay', 'password', 'tman2272@aol.com');
+INSERT INTO users (name, password, email, memberSince)
+  VALUES ('Tay', 'password', 'tman2272@aol.com', 'May 1, 2012');

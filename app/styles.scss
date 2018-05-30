@@ -245,6 +245,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
 
 .fav-error, .no-movies {
@@ -321,7 +322,7 @@ body {
   margin-left: 3.5vmax;
 }
 
-.favorites-header {
+.account-header {
   display: flex;
   font-size: 2.5em;
   width: 93%;
@@ -335,4 +336,29 @@ body {
   margin-top: 30px;
   margin-bottom: 10px;
   align-items: center;
+}
+
+.account-profile-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 80px;
+  align-content: center;
+  padding-top: 10px;
+  padding-left: 30px;
+  font-family: "Fjalla One", sans-serif;
+  margin-top: 40px;
+  margin-left: 33%;
+}
+
+.account-profile label {
+  font-size: 1.5em;
+  color: $primary;
+  display: flex;
+  flex-direction: row;
+}
+
+.account-profile h3 {
+  color: black;
+  margin-left: 6px;
 }

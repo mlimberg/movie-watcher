@@ -10,15 +10,29 @@ class SignUp extends React.Component {
       email: '',
       password: '',
       error: ''
-    }
+    };
+    this.formatDate = this.formatDate.bind(this);
+  }
+
+  formatDate() {
+    const d = new Date();
+    const datePieces = d.toString().split(' ').filter((piece, i) => i >= 1 && i <= 3)
+    const [month, day, year] = datePieces;
+    return `${month} ${day}, ${year}`
   }
 
   addNewUser() {
-    const { name, email, password } = this.state
+    const { name, email, password } = this.state;
+    const body = {
+      name,
+      email,
+      password,
+      memberSince: this.formatDate()
+    };
     fetch('/api/users/new', {
       method: 'POST',
       headers: {"Content-Type": "application/json"},
-      body:JSON.stringify({ name, email, password })
+      body: JSON.stringify(body)
     })
       .then(() =>
         fetch("/api/users", {
@@ -29,7 +43,7 @@ class SignUp extends React.Component {
         .then(res => res.json())
         .then(user => {
           this.props.signInClick(user.data);
-          if(user) {browserHistory.push('/')}
+          if (user) {browserHistory.push('/')}
         }))
         .catch(err => this.setState({ error: 'EXISTING_USER' }))
   }
@@ -111,7 +125,7 @@ class SignUp extends React.Component {
           </button>
         </form>
       </div>
-    )
+    );
   }
 }
 
