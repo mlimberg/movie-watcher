@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { compose } from 'redux';
 import Header from '../header/Header';
 import UserContainer from '../../containers/userContainer/userContainer';
 import MovieContainer from '../../containers/movieContainer/MovieContainer';
@@ -42,4 +43,10 @@ class App extends Component {
   }
 }
 
-export default FavoritesContainer(UserContainer(MovieContainer(App)));
+const addAllProps = compose(
+  FavoritesContainer,
+  UserContainer,
+  MovieContainer
+);
+
+export default addAllProps(App);
