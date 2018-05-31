@@ -8,8 +8,9 @@ import { createStore } from 'redux';
 import rootReducer from './reducers/index';
 import App from './components/app/App';
 import MovieList from './components/movieList/MovieList';
-import SignUpContainer from './containers/signUpContainer/SignUpContainer';
-import FavoritesContainer from "./containers/favoritesContainer/FavoritesContainer";
+// import SignUpContainer from './containers/signUpContainer/SignUpContainer';
+import SignUp from './components/signUp/SignUp';
+// import FavoritesContainer from "./containers/favoritesContainer/FavoritesContainer";
 import MovieDetail from './components/movieDetail/MovieDetail';
 import Account from './components/account/Account';
 
@@ -22,7 +23,7 @@ const router = (
     <Router history={browserHistory}>
       <Route path='/' component={App}>
         <IndexRoute component={MovieList} />
-        <Route path='/join' component={SignUpContainer} />
+        <Route path='/join' component={SignUp} />
         <Route path='/favorites' component={Account} />
         <Route path='/movies/:movie_title' component={MovieDetail} />
         <Route path='/my-account' component={Account} />

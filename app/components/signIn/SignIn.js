@@ -15,7 +15,7 @@ class SignIn extends React.Component {
 
   signIn() {
     const { email, password } = this.state;
-    const { signInClick, addToLocalStorage } = this.props;
+    const { signInUser, addToLocalStorage } = this.props;
     fetch('/api/users', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
@@ -23,7 +23,7 @@ class SignIn extends React.Component {
     })
     .then(res => res.json())
     .then((user) => {
-      signInClick(user.data);
+      signInUser(user.data);
       addToLocalStorage(user.data);
       
       this.setState({ error: false });
@@ -31,7 +31,7 @@ class SignIn extends React.Component {
     .then(() => fetch(`/api/users/${this.props.user.id}/favorites`)
       .then(res => res.json())
       .then(favs => this.props.getFavorites(favs.data)))
-    .catch(err => this.setState({ error: true, password: '' }))
+    .catch(err => this.setState({ error: true, password: '' }));
   }
 
   displayError(err) {

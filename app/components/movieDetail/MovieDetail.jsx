@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import MovieDetailContainer from '../../containers/movieDetailContainer/MovieDetailContainer';
+import MovieContainer from '../../containers/movieContainer/MovieContainer';
+// import MovieDetailContainer from '../../containers/movieDetailContainer/MovieDetailContainer';
 
 const MovieDetail = (props) => {  
   const { 
@@ -107,4 +108,4 @@ const MovieDetail = (props) => {
   );
 };
 
-export default MovieDetailContainer(MovieDetail);
+export default MovieContainer(MovieDetail);

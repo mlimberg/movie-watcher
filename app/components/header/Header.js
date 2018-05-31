@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import SignIn from '../../containers/signInContainer/SignInContainer';
+import SignIn from '../../components/signIn/SignIn';
 import UserContainer from '../../containers/userContainer/userContainer';
 import FavoritesContainer from '../../containers/favoritesContainer/FavoritesContainer';
 

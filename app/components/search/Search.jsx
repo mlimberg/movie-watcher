@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SearchContainer from '../../containers/searchContainer/SearchContainer';
+// import SearchContainer from '../../containers/searchContainer/SearchContainer';
 import { Link } from 'react-router';
 import MovieContainer from '../../containers/movieContainer/MovieContainer';
 

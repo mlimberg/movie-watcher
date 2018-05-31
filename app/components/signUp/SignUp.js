@@ -42,10 +42,10 @@ class SignUp extends React.Component {
         })
         .then(res => res.json())
         .then(user => {
-          this.props.signInClick(user.data);
+          this.props.signInUser(user.data);
           if (user) {browserHistory.push('/')}
         }))
-        .catch(err => this.setState({ error: 'EXISTING_USER' }))
+        .catch(err => this.setState({ error: 'EXISTING_USER' }));
   }
 
   emailExistsError(err) {
